@@ -61,3 +61,7 @@ npm run dev
 ## 상세 문서
 
 - [server/README.md](server/README.md) — 서버 API 및 실행 방법
+
+## 디자인
+
+- [Figma — TouchDesign](https://www.figma.com/design/yO1oSzYQypry0ft3tmGKQl/TouchDesign?node-id=0-1&t=VN4ukxP2Jt4NNKwz-1)
