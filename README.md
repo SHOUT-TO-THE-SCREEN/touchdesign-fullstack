@@ -1,7 +1,7 @@
 # PrismDesign
 
 <p align="center">
-  <img src="assets/Logo1.png" alt="PrismDesign Landing" width="250" />
+  <img src="assets/Logo1.png" alt="PrismDesign Logo" width="250" />
 </p>
 
 <p align="center">
@@ -9,11 +9,12 @@
   Inspired by TouchDesigner — connect <b>TOP</b> (2D textures) · <b>CHOP</b> (channel data) · <b>SOP</b> (3D geometry) operators into a graph and generate real-time visuals.
 </p>
 
-<p align="center">`
+<p align="center">
   <a href="#quick-start">Quick Start</a> ·
   <a href="#screenshots">Screenshots</a> ·
   <a href="#architecture">Architecture</a> ·
-  <a href="#operator-model">Operators</a> ·
+  <a href="#operator-model">Operator Model</a> ·
+  <a href="#operators">Operators</a> ·
   <a href="#tech-stack">Tech Stack</a>
 </p>
 
@@ -23,7 +24,7 @@
 
 **PrismDesign** is a web-based visual programming environment where users compose real-time media pipelines by wiring operators as nodes.
 
-Key ideas:`
+Key ideas:
 
 - **Operator graph**: Nodes are operators (TOP/CHOP/SOP). Edges define data flow.
 - **Live preview**: Each node can render a mini preview; the graph produces a final output.
@@ -36,10 +37,8 @@ Key ideas:`
 
 ## Demo
 
-If you generated a short demo GIF:
-
 <p align="center">
-  <img src="assets/assets1.gif" alt="PrismDesign Demo" width="1000" />`
+  <img src="assets/assets1.gif" alt="PrismDesign Demo" width="1000" />
 </p>
 
 ---
@@ -68,9 +67,9 @@ If you generated a short demo GIF:
 
 <details>
   <summary>Full size images</summary>
-  <img src="assets/landing.png" alt="Landing Full" />
-  <img src="assets/mini-demo.png" alt="Mini Demo Full" />
-  <img src="assets/studio.png" alt="Studio Full" />
+  <img src="assets/main.png" alt="Landing Full" />
+  <img src="assets/main1.png" alt="Mini Demo Full" />
+  <img src="assets/assets1.png" alt="Studio Full" />
   <img src="assets/list.png" alt="My Cloud Full" />
 </details>
 
@@ -80,8 +79,8 @@ If you generated a short demo GIF:
 
 ```
 touchdesign-fullstack/
-├── frontend/     # Frontend (React + Vite)
-└── server/   # Backend (Express) — save/load graphs + thumbnails
+├── frontend/  # Frontend (React + Vite)
+└── server/    # Backend (Express) — save/load graphs + thumbnails
 ```
 
 ---
@@ -163,6 +162,66 @@ Each operator follows a common contract:
 
 ---
 
+## Operators
+
+### TOP (Texture Operators) — 텍스처/이미지 처리
+
+| 노드 | 설명 |
+|---|---|
+| `noise` | 노이즈 패턴 텍스처 생성 (Perlin/simplex noise) |
+| `textTop` | 텍스트 문자열을 텍스처로 렌더링 |
+| `constant` | 단색으로 채운 텍스처 생성 |
+| `ramp` | 방향/형태별 그라디언트 텍스처 생성 |
+| `lookup` | 다른 텍스처를 팔레트 삼아 색상 리매핑 |
+| `transform` | 텍스처 이동 / 회전 / 스케일 변환 |
+| `level` | 밝기 / 대비 / 감마 / 불투명도 조정 |
+| `hsvAdjust` | HSV 기반 색조(H) / 채도(S) / 명도(V) 조정 |
+| `blur` | 가우시안 블러 적용 |
+| `edgeDetect` | 에지(윤곽선) 검출 필터 |
+| `fileIn` *(todo)* | 이미지 / 동영상 파일 불러오기 |
+
+### COMPOSITE — 두 텍스처 합성
+
+| 노드 | 설명 |
+|---|---|
+| `over` | A를 B 위에 알파 블렌딩으로 겹치기 |
+| `add` | 픽셀값 더하기 (밝아짐) |
+| `multiply` | 픽셀값 곱하기 (어두워짐, 마스킹) |
+| `screen` | 스크린 블렌드 (multiply 반전, 밝아짐) |
+| `subtract` | 픽셀값 빼기 (어두워짐, 차이 강조) |
+
+### CHOP (Channel Operators) — 채널/데이터 신호 처리
+
+| 노드 | 설명 |
+|---|---|
+| `audioIn` | 마이크 오디오 실시간 입력 |
+| `fft` | 오디오를 주파수 스펙트럼으로 분석 |
+| `mouseIn` | 마우스 XY 위치 / 버튼 상태를 채널로 입력 |
+| `math` | 채널에 곱셈 / 덧셈 등 수학 연산 적용 |
+| `noiseCh` | 노이즈 기반 채널 신호 생성 |
+| `lfo` | 저주파 오실레이터 — 사인/삼각파 등 주기 신호 |
+| `movieAudioIn` | 동영상 파일에서 오디오 채널 추출 |
+| `handsChop` | MediaPipe로 손 랜드마크 추적 데이터 입력 |
+| `envelope` *(todo)* | 오디오 진폭 엔벨로프 검출 |
+
+### SOP (Surface Operators) — 3D 지오메트리 처리
+
+| 노드 | 설명 |
+|---|---|
+| `sphereSop` | 구형 메시 생성 |
+| `gridSop` | 격자 평면 메시 생성 |
+| `noiseSop` | 지오메트리 버텍스에 노이즈 변형 적용 |
+| `torusSop` | 토러스(도넛형) 메시 생성 |
+| `mergeSop` | 여러 지오메트리를 하나로 병합 |
+
+### OUT — 출력
+
+| 노드 | 설명 |
+|---|---|
+| `output` | 네트워크의 최종 렌더 결과를 뷰어로 출력 |
+
+---
+
 ## Graph Storage
 
 Graphs are persisted as local JSON files.
@@ -210,7 +269,7 @@ Optimization directions:
 
 ### P0 (Stabilize)
 - [ ] Improve save/load robustness + thumbnail quality
-- [ ] Expand core operator set (TOP/CHOP/SOP)
+- [ ] Expand core operator set (TOP/CHOP/SOP)`
 - [ ] Better parameter UX (grouping, ranges, presets)
 
 ### P1 (Productivity)
