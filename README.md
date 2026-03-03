@@ -12,8 +12,6 @@ touchdesign-fullstack/
 ```
 
 
-
-
 ## 빠른 시작
 
 두 터미널에서 각각 실행합니다.
