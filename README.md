@@ -59,6 +59,9 @@ Key ideas:
 <p align="center">
   <img src="assets/assets1.png" alt="Studio Editor" width="1000" />
 </p>
+<p align="center">
+  <img src="assets/assets2.png" alt="Studio Editor" width="1000" />
+</p>
 
 ### My Cloud (Saved Graphs)
 <p align="center">
@@ -70,6 +73,7 @@ Key ideas:
   <img src="assets/main.png" alt="Landing Full" />
   <img src="assets/main1.png" alt="Mini Demo Full" />
   <img src="assets/assets1.png" alt="Studio Full" />
+  <img src="assets/assets2.png" alt="Studio Full1" />
   <img src="assets/list.png" alt="My Cloud Full" />
 </details>
 
