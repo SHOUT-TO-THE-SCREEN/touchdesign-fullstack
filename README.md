@@ -41,6 +41,12 @@ Key ideas:
   <img src="assets/assets1.gif" alt="PrismDesign Demo" width="1000" />
 </p>
 
+### Hands CHOP (MediaPipe Hand Tracking)
+
+<p align="center">
+  <img src="assets/handtracking.gif" alt="Hands CHOP Demo" width="1000" />
+</p>
+
 ---
 
 ## Screenshots
@@ -273,7 +279,7 @@ Optimization directions:
 
 ### P0 (Stabilize)
 - [ ] Improve save/load robustness + thumbnail quality
-- [ ] Expand core operator set (TOP/CHOP/SOP)`
+- [ ] Expand core operator set (TOP/CHOP/SOP)
 - [ ] Better parameter UX (grouping, ranges, presets)
 
 ### P1 (Productivity)
