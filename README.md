@@ -10,6 +10,10 @@
 </p>
 
 <p align="center">
+  Inspired by <a href="https://derivative.ca/">TouchDesigner</a>
+</p>
+
+<p align="center">
   <a href="#quick-start">Quick Start</a> ·
   <a href="#screenshots">Screenshots</a> ·
   <a href="#architecture">Architecture</a> ·
