@@ -105,7 +105,7 @@ touchdesign-fullstack/
 
 ---
 
-## 👥 Team & Roles
+## Team & Roles
 
 | Member | GitHub | Role | Main Responsibilities |
 |---|---|---|---|
