@@ -1,4 +1,5 @@
-# PrismDesign
+<h2 align="center">PrismDesign</h2>
+
 
 <p align="center">
   <img src="assets/Logo1.png" alt="PrismDesign Logo" width="250" />
